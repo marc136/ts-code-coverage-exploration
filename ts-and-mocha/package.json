@@ -1,0 +1,47 @@
+{
+  "name": "ts-and-mocha",
+  "version": "1.0.0",
+  "description": "Code coverage report with TypeScript mocha test",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc mocha",
+    "ava": "tsc && nyc ava test-ava",
+    "1test2": "tape -r ts-node/register src/*.test.ts | tap-prettify -",
+    "test2": "tape -r ts-node/register test-tape/*.ts",
+    "coverage": "nyc yarn test2",
+    "report": "nyc report --reporter=html"
+  },
+  "keywords": [],
+  "author": "Marc Walter",
+  "license": "Unlicense",
+  "dependencies": {
+    "typescript": "2.9.2"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.4",
+    "@types/node": "^10.5.2",
+    "mocha": "^5.2.0",
+    "source-map-support": "^0.5.6",
+    "ts-node": "7.0.0"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude": [
+      "*.d.ts"
+    ],
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "all": true
+  }
+}

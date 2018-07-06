@@ -1,0 +1,38 @@
+{
+  "name": "ts-tap-test1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape -r ts-node/register src/*.test.ts",
+    "pretty": "tape -r ts-node/register src/*.test.ts | tap-prettify -",
+    "cover": "nyc yarn test",
+    "report": "nyc report --reporter=html"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.test.ts"
+    ]
+  },
+  "keywords": [],
+  "author": "Marc Walter",
+  "license": "Unlicense",
+  "dependencies": {
+    "typescript": "2.9.2"
+  },
+  "devDependencies": {
+    "@types/tape": "^4.2.32",
+    "@types/mocha": "^5.2.4",
+    "@types/node": "^10.5.2",
+    "ava": "^0.25.0",
+    "mocha": "^5.2.0",
+    "source-map-support": "^0.5.6",
+    "tap": "^12.0.1",
+    "tap-prettify": "^0.0.2",
+    "tape": "^4.9.1",
+    "ts-node": "7.0.0"
+  }
+}
